@@ -1,10 +1,7 @@
 {
   "name": "node-exercise",
   "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
+  "main":"server.js",
   "dependencies": {
     "express": "~4.2.0",
     "static-favicon": "~1.0.0",
@@ -14,6 +11,6 @@
     "debug": "~0.7.4",
     "ejs": "*",
     "connect-busboy": "*",
-    "excel-parser": "*",
+    "excel-parser": "*"
   }
 }
