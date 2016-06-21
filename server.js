@@ -10,7 +10,7 @@ var port     = process.env.PORT || 3007;
 var busboy = require('connect-busboy');
 
 var character = require('./app/character.js');
-// var busstops = require('./character/busstops');
+var planets = require('./app/planets.js');
 // var buses =  require('./character/buses');
 
 var app = express();
@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/character', character);
+app.use('/planetresidents', planets);
 // app.use('/busstops', busstops);
 // app.use('/buses',buses);
 
