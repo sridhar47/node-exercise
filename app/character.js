@@ -11,11 +11,21 @@ app.get('/', function(req, res){
 	DataService.invoke(options, function(err, response){
 		if(!err){
 			var people = response.results;
+			console.log(people.length,'intial')
 			if(query.sort){
 				var limit = 50;
 				people = _.sortBy(people, 'height');
 				if(people.length > 50){
 					people = people.slice(0, 50);
+				}
+			}
+			if(query.page){
+				var limitOfResponse = 10;
+				var limit = JSON.parse(query.page);
+				var startIndex = (limit-1) * limitOfResponse;
+				var endIndex = limit * limitOfResponse;
+				if(startIndex > people.length){
+					people = people.slice(startIndex, endIndex);
 				}
 			}
 			res.render('character',{
