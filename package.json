@@ -1,18 +1,19 @@
 {
   "name": "node-exercise",
   "version": "0.0.1",
-  "main":"server.js",
+  "main": "server.js",
   "dependencies": {
-    "express": "~4.2.0",
-    "request": "*",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
     "body-parser": "~1.0.0",
+    "connect-busboy": "*",
+    "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
     "ejs": "*",
+    "excel-parser": "*",
+    "express": "~4.2.0",
+    "morgan": "~1.0.0",
     "path": "*",
-    "connect-busboy": "*",
-    "excel-parser": "*"
+    "request": "*",
+    "static-favicon": "~1.0.0",
+    "underscore": "^1.8.3"
   }
 }

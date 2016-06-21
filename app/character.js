@@ -1,11 +1,23 @@
 var express = require('express');
 var DataService = require('../services/dataService.js');
 var app      = express();
+var _ = require('underscore');
 
 app.get('/', function(req, res){
+	var http = { req: req, res: res };
 	var text = "Hi this is sample view of node exercise";
-	res.render('character',{
-		text: text
+	var options = { url: 'api/people', method:'GET', http:http };
+	var query = req.query;
+	DataService.invoke(options, function(err, response){
+		if(!err){
+			var people = response.results;
+			if(query.sort){
+				people = _.sortBy(people, 'height');
+			}
+			res.render('character',{
+				people: people
+			});
+		}
 	});
 });
 
