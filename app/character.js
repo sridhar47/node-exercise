@@ -24,7 +24,7 @@ app.get('/', function(req, res){
 				var limit = JSON.parse(query.page);
 				var startIndex = (limit-1) * limitOfResponse;
 				var endIndex = limit * limitOfResponse;
-				if(startIndex > people.length){
+				if(startIndex < people.length){
 					people = people.slice(startIndex, endIndex);
 				}
 			}
