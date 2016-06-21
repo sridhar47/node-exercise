@@ -16,7 +16,7 @@ var character = require('./app/character.js');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views/'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(favicon());
@@ -46,25 +46,25 @@ app.use('/character', character);
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-	app.use(function(err, req, res, next) {
-		res.status(err.status || 500);
-		res.render('error', {
-			message: err.message,
-			error: err
-		});
-	});
-}
+// if (app.get('env') === 'development') {
+// 	app.use(function(err, req, res, next) {
+// 		res.status(err.status || 500);
+// 		res.render('error', {
+// 			message: err.message,
+// 			error: err
+// 		});
+// 	});
+// }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-	res.status(err.status || 500);
-	res.render('error', {
-		message: err.message,
-		error: {}
-	});
-});
+// app.use(function(err, req, res, next) {
+// 	res.status(err.status || 500);
+// 	res.render('error', {
+// 		message: err.message,
+// 		error: {}
+// 	});
+// });
 
 app.listen(port);
 console.log('The magic happens on port ' + port );

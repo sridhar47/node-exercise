@@ -7,6 +7,11 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<h3><%= text %></h3>
+	<% if(typeof(text) != "undefined") {%>
+		<h3><%= text %></h3>
+	<% } %>
+	<% if(typeof(name) != "undefined") {%>
+		<h3><%= name %></h3>
+	<% } %>
 </body>
 </html>

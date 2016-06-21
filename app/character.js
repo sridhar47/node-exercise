@@ -9,4 +9,11 @@ app.get('/', function(req, res){
 	});
 });
 
+app.get('/:name', function(req, res){
+	var name = req.param('name');
+	res.render('character',{
+		name: name
+	});
+});
+
 module.exports = app;
