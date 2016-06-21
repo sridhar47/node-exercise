@@ -12,7 +12,11 @@ app.get('/', function(req, res){
 		if(!err){
 			var people = response.results;
 			if(query.sort){
+				var limit = 50;
 				people = _.sortBy(people, 'height');
+				if(people.length > 50){
+					people = people.slice(0, 50);
+				}
 			}
 			res.render('character',{
 				people: people
