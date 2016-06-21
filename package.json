@@ -11,6 +11,7 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "ejs": "*",
+    "path": "*",
     "connect-busboy": "*",
     "excel-parser": "*"
   }

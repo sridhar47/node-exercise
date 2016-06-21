@@ -9,14 +9,14 @@ var port     = process.env.PORT || 3007;
 
 var busboy = require('connect-busboy');
 
-// var routes = require('./routes/index');
-// var busstops = require('./routes/busstops');
-// var buses =  require('./routes/buses');
+var character = require('./app/character.js');
+// var busstops = require('./character/busstops');
+// var buses =  require('./character/buses');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/'));
 app.set('view engine', 'ejs');
 
 app.use(favicon());
@@ -27,12 +27,8 @@ app.use(cookieParser());
 app.use(busboy());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req,res,next){
-	req.db = db;
-	next();
-});
 
-// app.use('/', routes);
+app.use('/character', character);
 // app.use('/busstops', busstops);
 // app.use('/buses',buses);
 
@@ -40,11 +36,11 @@ app.use(function(req,res,next){
 
 
 /// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
-});
+// app.use(function(req, res, next) {
+// 	var err = new Error('Not Found');
+// 	err.status = 404;
+// 	next(err);
+// });
 
 /// error handlers
 
